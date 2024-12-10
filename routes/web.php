@@ -21,3 +21,6 @@ Route::get('/register', [UserController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [UserController::class, 'register']);
 
 Route::get('/admin', [AdminController::class, 'Dashboard'])->name('dashboardadmin');
+
+Route::get('/clothesAdmin', [AdminController::class,'tampilClothes'])->name('clothesAdmin.tampilclotheses');
+

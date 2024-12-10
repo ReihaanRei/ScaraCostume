@@ -9,7 +9,7 @@
     <ul class="space-y-4">
         <!-- Clothes Link -->
         <li>
-            <a href="#" class="flex items-center p-3 rounded-md hover:bg-[#d2b1a7] transition duration-200">
+            <a href="clothesAdmin.tampilclotheses" class="flex items-center p-3 rounded-md hover:bg-[#d2b1a7] transition duration-200">
                 <i class="fas fa-users mr-3 text-lg"></i>
                 <span class="text-lg">Clothes</span>
             </a>
