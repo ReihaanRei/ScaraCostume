@@ -8,8 +8,8 @@ use App\Models\clotheses;
 class ClothesController extends Controller
 {
     public function tampilclotheses() {
-        $clothess = clotheses::all();
-        return view('clothesAdmin.tampilclotheses', compact('clothess'));
+        $clothes = clotheses::all();
+        return view('clothesAdmin.tampilclotheses', compact('clothes'));
     }
 
     public function tambahclotheses() {
@@ -28,33 +28,33 @@ class ClothesController extends Controller
         $imagename = time() . '.' . $request->image->extension();
         $request->image->move(public_path('images'), $imagename);
 
-        $clothess = new clotheses();
-        $clothess->name = $request->name;
-        $clothess->description = $request->description;
-        $clothess->price = $request->price;
-        $clothess->image = 'images/'. $imagename;
-        $clothess->save();
+        $clothes = new clotheses();
+        $clothes->name = $request->name;
+        $clothes->description = $request->description;
+        $clothes->price = $request->price;
+        $clothes->image = 'images/'. $imagename;
+        $clothes->save();
         return redirect()->route('clothesAdmin.tampilclotheses');
     }
 
     public function updateclotheses($id) {
-        $clothess = clotheses::findOrFail($id);
-        return view('clothesAdmin.updateclotheses', compact('clothess'));
+        $clothes = clotheses::findOrFail($id);
+        return view('clothesAdmin.updateclotheses', compact('clothes'));
     }
 
     public function editclotheses(Request $request, $id) {
-        $clothess = clotheses::findOrFail($id);
-        $clothess->name = $request->name;
-        $clothess->description = $request->description;
-        $clothess->price = $request->price;
-        $clothess->image = $request->image;
-        $clothess->save();
+        $clothes = clotheses::findOrFail($id);
+        $clothes->name = $request->name;
+        $clothes->description = $request->description;
+        $clothes->price = $request->price;
+        $clothes->image = $request->image;
+        $clothes->save();
         return redirect()->route('clothesAdmin.tampilclotheses');
     }
 
     public function deleteclotheses($id) {
-        $clothess = clotheses::findOrFail($id);
-        $clothess->delete();
+        $clothes = clotheses::findOrFail($id);
+        $clothes->delete();
         return redirect()->route('clothesAdmin.tampilclotheses');
     }
 }
